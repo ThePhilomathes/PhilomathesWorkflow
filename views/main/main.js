@@ -1,0 +1,92 @@
+const MainComponent = {
+    template: `
+<div class="max-w-5xl mx-auto p-8 bg-white shadow-sm rounded-lg mt-6">
+  <!-- Company Info -->
+  <h1 class="text-3xl sm:text-4xl font-bold mb-4 text-blue-700">Welcome to Our Company</h1>
+  <p class="mb-6 text-gray-600">
+    We are a leading provider of innovative solutions in healthcare administration,
+    dedicated to efficiency, accuracy, and customer satisfaction.
+  </p>
+
+  <!-- Company News -->
+  <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">
+    Company News & Updates
+  </h2>
+  <ul class="list-disc list-inside mb-6 text-gray-700">
+    <li><strong>Jan 2026:</strong> Launched new claims processing system.</li>
+    <li><strong>Dec 2025:</strong> Achieved ISO 9001 certification.</li>
+    <li><strong>Nov 2025:</strong> Expanded Data Department with analytics team.</li>
+  </ul>
+
+  <!-- Gallery -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+    <img src="https://via.placeholder.com/300x200" alt="Claims System Launch" class="rounded shadow">
+    <img src="https://via.placeholder.com/300x200" alt="ISO Certification" class="rounded shadow">
+    <img src="https://via.placeholder.com/300x200" alt="Data Team Expansion" class="rounded shadow">
+  </div>
+
+  <!-- Directory -->
+  <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">
+    Department Directory
+  </h2>
+  <table class="w-full border border-gray-200 mb-6">
+    <thead class="bg-blue-100">
+      <tr>
+        <th class="border px-4 py-2 text-left">Department</th>
+        <th class="border px-4 py-2 text-left">Function</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="border px-4 py-2">Billing</td>
+        <td class="border px-4 py-2">Manages invoices, payment processing, financial records, and ensures compliance
+          with accounting standards.</td>
+      </tr>
+      <tr>
+        <td class="border px-4 py-2">Data</td>
+        <td class="border px-4 py-2">Handles analytics, reporting, database management, and supports decision-making
+          with insights.</td>
+      </tr>
+      <tr>
+        <td class="border px-4 py-2">Claims</td>
+        <td class="border px-4 py-2">Processes client claims, verifies documentation, and ensures timely resolution of
+          cases.</td>
+      </tr>
+      <tr>
+        <td class="border px-4 py-2">Routing</td>
+        <td class="border px-4 py-2">Directs requests to appropriate departments, manages communication flow, and
+          optimizes response times.</td>
+      </tr>
+      <tr>
+        <td class="border px-4 py-2">Quality Assurance</td>
+        <td class="border px-4 py-2">Monitors service quality, conducts audits, and implements improvements for customer
+          satisfaction.</td>
+      </tr>
+      <tr>
+        <td class="border px-4 py-2">Workflow Development</td>
+        <td class="border px-4 py-2">Designs, tests, and optimizes workflows to enhance efficiency and reduce
+          operational bottlenecks.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Employee Stats -->
+  <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">
+    Employee Statistics
+  </h2>
+  <ul class="list-disc list-inside mb-6 text-gray-700">
+    <li>Total Employees: 250</li>
+    <li>Average Tenure: 5 years</li>
+    <li>Departments: 6</li>
+    <li>Remote Workforce: 40%</li>
+  </ul>
+
+  <!-- Footer -->
+  <footer class="bg-blue-600 text-white p-4 rounded-lg mt-8 text-sm">
+    <p class="font-semibold">Our Company Inc.</p>
+    <p>123 Business Avenue, Metro Manila, Philippines</p>
+    <p>Email: contact@ourcompany.com | Phone: +63 2 1234 5678</p>
+    <p class="mt-2">&copy; 2026 Our Company Inc. All rights reserved.</p>
+  </footer>
+</div>`
+}

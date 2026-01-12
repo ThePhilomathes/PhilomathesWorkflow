@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Department Portal</title>
+
+</head>
+
+<body class="bg-blue-50 text-gray-800">
+
+
+
+  <div id="app">
+
+
+
+    <div class="w-full flex flex-col">
+      <div class="w-full">
+        <header-component />
+      </div>
+      <div class="w-full">
+        <router-view></router-view>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+
+  <!-- Vue 3 and Vue Router via CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script>
+  <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.js" defer></script>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com" defer></script>
+
+
+  <script src="index.js" defer> </script>
+  <script src="components/header/header.js" defer></script>
+  <script src="./views/main/main.js" defer></script>
+  <script src="./views/billing/billing.js" defer></script>
+  <script src="routes.js" defer> </script>
+
+
+
+
+
+
+</body>
+
+</html>
