@@ -1,5 +1,9 @@
-const BillingComponent = {
-    data() {
+
+
+
+const BillingComponent = defineAsyncComponent(async() =>{
+  return {
+      data() {
         return {
             searchQuery: "",
             workflows: [
@@ -49,6 +53,9 @@ const BillingComponent = {
             )
         }
     },
-    template: getHTML('./views/main/main.html')
+    template: await getHTML('./views/billing/billing.html')
+  }
+});
 
-}
+
+
