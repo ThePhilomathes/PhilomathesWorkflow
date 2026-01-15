@@ -4,7 +4,7 @@
 const routes = [
     { path: '/', component: MainComponent, name: 'Home' },
     { path: '/billing', component: BillingComponent, name: 'Billing' },
-    // { path: '/billing', component: Billing },
+    { path: '/data', component: DataComponent, name: 'Data' },
     // { path: '/data', component: Data },
     // { path: '/claims', component: Claims },
     // { path: '/routing', component: Routing },
