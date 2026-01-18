@@ -1,0 +1,75 @@
+<button
+  onclick="toggleSidebar()"
+  class="fixed top-4 left-4 z-50 bg-blue-600 text-white px-3 py-2 rounded-md shadow hover:bg-blue-700 md:hidden"
+>
+  X
+</button>
+
+<!-- Sidebar -->
+<aside
+  id="sidebar"
+  class="fixed inset-y-0 left-0 w-64 bg-gray-900 text-gray-200 transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-40 flex flex-col"
+>
+
+  <!-- Header -->
+  <div class="px-5 py-4 text-xl font-bold border-b border-gray-700">
+    Philomathes Menu
+  </div>
+
+  <!-- Navigation -->
+  <nav class="flex-1 overflow-y-auto px-2 py-4 space-y-2">
+
+    <!-- Billing -->
+    <div>
+      <button
+        onclick="toggleMenu('billingmenu')"
+        class="flex items-center w-full px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-800"
+      >
+        <!-- Icon -->
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-10v2m0 12v2" />
+        </svg>
+
+        Billing
+
+        <!-- Badge -->
+        <span class="ml-auto bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full">
+          3
+        </span>
+      </button>
+
+      <div id="billingmenu" class="ml-10 mt-2 space-y-1">
+        <router-link to="/billingpec" class="hover:text-blue-100">Client Specifics</router-link>
+        <router-link to="/billingcontact" class="hover:text-blue-100">Client Contacts</router-link>
+        <router-link to="/billingkudos" class="hover:text-blue-100">Department Testimonials</router-link>
+      </div>
+    </div>
+
+    <!-- Data -->
+    <div>
+      <button
+        onclick="toggleMenu('views/data/data.html')"
+        class="flex items-center w-full px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-800"
+      >
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+        </svg>
+
+        Data
+      </button>
+
+      <div id="data" class="ml-10 mt-2 space-y-1 hidden">
+        <router-link to="/dataspec" class="hover:text-blue-100">Client Specifics</router-link>
+        <router-link to="/datacontact" class="hover:text-blue-100">Client Contacts</router-link>
+        <router-link to="/datakudos" class="hover:text-blue-100">Department Testimonials</router-link>
+      </div>
+    </div>
+
+  </nav>
+
+  <!-- Footer -->
+  <div class="border-t border-gray-700 px-4 py-3 text-sm">
+    <p class="font-semibold">The Philomathes Workflow</p>
+    <p class="text-gray-400">v1.0.0</p>
+  </div>
+</aside>
