@@ -7,8 +7,85 @@
   </p>
 
 
+<button
+  onclick="toggleSidebar()"
+  class="fixed top-4 left-4 z-50 bg-blue-600 text-white px-3 py-2 rounded-md shadow hover:bg-blue-700 md:hidden"
+>
+  ☰
+</button>
+
+<!-- Sidebar -->
+<aside
+  id="sidebar"
+  class="fixed inset-y-0 left-0 w-64 bg-gray-900 text-gray-200 transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-40 flex flex-col"
+>
+
+  <!-- Header -->
+  <div class="px-5 py-4 text-xl font-bold border-b border-gray-700">
+    Workflow
+  </div>
+
+  <!-- Navigation -->
+  <nav class="flex-1 overflow-y-auto px-2 py-4 space-y-2">
+
+    <!-- Billing -->
+    <div>
+      <button
+        onclick="toggleMenu('billing')"
+        class="flex items-center w-full px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-800"
+      >
+        <!-- Icon -->
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-10v2m0 12v2" />
+        </svg>
+
+        Billing
+
+        <!-- Badge -->
+        <span class="ml-auto bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full">
+          3
+        </span>
+      </button>
+
+      <div id="billing" class="ml-10 mt-2 space-y-1">
+        <a href="#" class="block text-sm hover:text-white">Client Specifics</a>
+        <a href="#" class="block text-sm hover:text-white">Client Contacts</a>
+        <a href="#" class="block text-sm hover:text-white">Testimonials</a>
+      </div>
+    </div>
+
+    <!-- Data -->
+    <div>
+      <button
+        onclick="toggleMenu('data')"
+        class="flex items-center w-full px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-800"
+      >
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+        </svg>
+
+        Data
+      </button>
+
+      <div id="data" class="ml-10 mt-2 space-y-1 hidden">
+        <a href="#" class="block text-sm hover:text-white">Client Specifics</a>
+        <a href="#" class="block text-sm hover:text-white">Client Contacts</a>
+        <a href="#" class="block text-sm hover:text-white">Analytics</a>
+      </div>
+    </div>
+
+  </nav>
+
+  <!-- Footer -->
+  <div class="border-t border-gray-700 px-4 py-3 text-sm">
+    <p class="font-semibold">Our Company</p>
+    <p class="text-gray-400">v1.0.0</p>
+  </div>
+</aside>
+
+
   <!-- Sidebar -->
-  <aside class="w-64 h-screen bg-gray-900 text-gray-200 fixed left-0 top-0 overflow-y-auto">
+ <!--<aside class="w-64 h-screen bg-gray-900 text-gray-200 fixed left-0 top-0 overflow-y-auto">
     <div class="p-4 text-xl font-bold border-b border-gray-700">
       Workflow
           <button
@@ -18,7 +95,7 @@
     X
     </div>
 </aside>
-    <!-- Section 1 -->
+    <!-- Section 1 
     <div class="mt-4">
       <button
         class="w-full text-left px-4 py-2 font-semibold uppercase text-sm text-gray-400 hover:text-white"
@@ -32,7 +109,7 @@
       </ul>
     </div>
 
-    <!-- Section 2 -->
+    <!-- Section 2 
      <div class="mt-4">
       <button
         class="w-full text-left px-4 py-2 font-semibold uppercase text-sm text-gray-400 hover:text-white"
@@ -45,9 +122,13 @@
         <router-link to="/datakudos" class="hover:text-blue-100">Department Testimonials</router-link>
       </ul>
     </div>
+-->
 
-  <div class="sm:flex-row border-red-500">
 
+
+
+<!-- Main Content -->
+<main class="md:ml-64 p-8">
   <!-- Company News -->
   <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">
     Company News & Updates
@@ -120,7 +201,7 @@
     <li>Departments: 6</li>
     <li>Remote Workforce: 40%</li>
   </ul>
-
+</main>
   <!-- Footer -->
   <footer class="bg-blue-600 text-white p-4 rounded-lg mt-8 text-sm">
     <p class="font-semibold">Our Company Inc.</p>
