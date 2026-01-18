@@ -7,24 +7,38 @@
   </p>
 
 
-<nav class="sidebar">
-  <div class="sidebar-section">
-    <div class="section-header">Section 1</div>
-    <ul class="sidebar-list">
-      <li><a href="#item1">Item 1</a></li>
-      <li><a href="#item2">Item 2</a></li>
-    </ul>
-  </div>
+  <!-- Sidebar -->
+  <aside class="w-64 h-screen bg-gray-900 text-gray-200 fixed left-0 top-0 overflow-y-auto">
+    <div class="p-4 text-xl font-bold border-b border-gray-700">
+      Workflow
+    </div>
 
-  <div class="sidebar-section">
-    <div class="section-header">Section 2</div>
-    <ul class="sidebar-list">
-      <li><a href="#item3">Item 3</a></li>
-      <li><a href="#item4">Item 4</a></li>
-    </ul>
-  </div>
-</nav>
+    <!-- Section 1 -->
+    <div class="mt-4">
+      <button
+        class="w-full text-left px-4 py-2 font-semibold uppercase text-sm text-gray-400 hover:text-white"
+        onclick="toggle('section1')">
+        Section 1
+      </button>
+      <ul id="section1" class="pl-6 mt-2 space-y-2">
+        <li><a href="#item1" class="block hover:text-white">Item 1</a></li>
+        <li><a href="#item2" class="block hover:text-white">Item 2</a></li>
+      </ul>
+    </div>
 
+    <!-- Section 2 -->
+    <div class="mt-6">
+      <button
+        class="w-full text-left px-4 py-2 font-semibold uppercase text-sm text-gray-400 hover:text-white"
+        onclick="toggle('section2')">
+        Section 2
+      </button>
+      <ul id="section2" class="pl-6 mt-2 space-y-2 hidden">
+        <li><a href="#item3" class="block hover:text-white">Item 3</a></li>
+        <li><a href="#item4" class="block hover:text-white">Item 4</a></li>
+      </ul>
+    </div>
+  </aside>
 
   <!-- Company News -->
   <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">
