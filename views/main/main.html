@@ -18,27 +18,28 @@
       <button
         class="w-full text-left px-4 py-2 font-semibold uppercase text-sm text-gray-400 hover:text-white"
         onclick="toggle('section1')">
-        Section 1
+        Billing
       </button>
       <ul id="section1" class="pl-6 mt-2 space-y-2">
-        <li><a href="#item1" class="block hover:text-white">Item 1</a></li>
-        <li><a href="#item2" class="block hover:text-white">Item 2</a></li>
+        <router-link to="/billingpec" class="hover:text-blue-100">Client Specifics</router-link>
+        <router-link to="/billingcontact" class="hover:text-blue-100">Client Contacts</router-link>
+        <router-link to="/billingkudos" class="hover:text-blue-100">Department Testimonials</router-link>
       </ul>
     </div>
 
     <!-- Section 2 -->
-    <div class="mt-6">
+     <div class="mt-4">
       <button
         class="w-full text-left px-4 py-2 font-semibold uppercase text-sm text-gray-400 hover:text-white"
-        onclick="toggle('section2')">
-        Section 2
+        onclick="toggle('section1')">
+        Data
       </button>
-      <ul id="section2" class="pl-6 mt-2 space-y-2 hidden">
-        <li><a href="#item3" class="block hover:text-white">Item 3</a></li>
-        <li><a href="#item4" class="block hover:text-white">Item 4</a></li>
+      <ul id="section1" class="pl-6 mt-2 space-y-2">
+        <router-link to="/dataspec" class="hover:text-blue-100">Client Specifics</router-link>
+        <router-link to="/datacontact" class="hover:text-blue-100">Client Contacts</router-link>
+        <router-link to="/datakudos" class="hover:text-blue-100">Department Testimonials</router-link>
       </ul>
     </div>
-  </aside>
 
   <!-- Company News -->
   <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">
