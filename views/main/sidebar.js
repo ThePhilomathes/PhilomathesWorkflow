@@ -1,4 +1,4 @@
-const MainComponent = defineAsyncComponent(async() =>{
+const SidebarComponent = defineAsyncComponent(async() =>{
   return {
     template: await getHTML('./views/main/sidebar.html')
   }

@@ -39,3 +39,7 @@ console.log(router.getRoutes())
 app.component('header-component', HeaderComponent);
 app.use(router)
 app.mount('#app')
+
+app.component('sidebar-component', SidebarComponent);
+app.use(router)
+app.mount('#app')
