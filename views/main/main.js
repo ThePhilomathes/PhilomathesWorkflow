@@ -5,3 +5,7 @@ const MainComponent = defineAsyncComponent(async() =>{
     template: await getHTML('./views/main/main.html')
   }
 });
+
+   function toggle(id) {
+      document.getElementById(id).classList.toggle('hidden');
+    }
