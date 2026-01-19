@@ -11,14 +11,15 @@ const routes = [
     // { path: '/qa', component: QA },
     // { path: '/workflow', component: Workflow }
 
-    // Billing Sub-Headers//
-    { path: '/billingspec', component: BillingSpecComponent, name: 'Billing Client Specifics' },
-    { path: '/billingcontact', component: billingcontactComponent, name: 'Billing Client Contacts' },
-    { path: '/billingkudos', component: billingkudosComponent, name: 'Billing Testimonials' },
-    // Data Sub-Headers//
-    { path: '/dataspec', component: dataspecComponent, name: 'Data Client Specifics' },
-    { path: '/datacontact', component: datacontactComponent, name: 'Data Client Contacts' },
-    { path: '/datakudos', component: datakudosComponent, name: 'Data Testimonials' },
+//     // Billing Sub-Headers//
+//     { path: '/billingspec', component: BillingSpecComponent, name: 'Billing Client Specifics' },
+//     { path: '/billingcontact', component: billingcontactComponent, name: 'Billing Client Contacts' },
+//     { path: '/billingkudos', component: billingkudosComponent, name: 'Billing Testimonials' },
+//     // Data Sub-Headers//
+//     { path: '/dataspec', component: dataspecComponent, name: 'Data Client Specifics' },
+//     { path: '/datacontact', component: datacontactComponent, name: 'Data Client Contacts' },
+//     { path: '/datakudos', component: datakudosComponent, name: 'Data Testimonials' },
+// 
 ]
 
 const router = createRouter({

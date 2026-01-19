@@ -6,203 +6,82 @@
     dedicated to efficiency, accuracy, and customer satisfaction.
   </p>
 
+  <!-- Main Content -->
+  <main class="p-8">
+    <!-- Company News -->
+    <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">
+      Company News & Updates
+    </h2>
+    <ul class="list-disc list-inside mb-6 text-gray-700">
+      <li><strong>Jan 20 2026; 2:32:20am PST :</strong> Launched new claims processing system.</li>
+      <li><strong>Dec 02 2025; 9:42:52am PST :</strong> Achieved ISO 9001 certification.</li>
+      <li><strong>Nov 14 2025; 5:12:13am PST :</strong> Expanded Data Department with analytics team.</li>
+    </ul>
 
-
-
-  <!-- Sidebar WILL DELETE SOON-->
- <!--<aside class="w-64 h-screen bg-gray-900 text-gray-200 fixed left-0 top-0 overflow-y-auto">
-    <div class="p-4 text-xl font-bold border-b border-gray-700">
-      Workflow
-          <button
-      class="text-gray-400 hover:text-white"
-      onclick="toggleSidebar()"
-    >
-    X
-    </div>
-</aside>
-    <!-- Section 1 
-    <div class="mt-4">
-      <button
-        class="w-full text-left px-4 py-2 font-semibold uppercase text-sm text-gray-400 hover:text-white"
-        onclick="toggle('section1')">
-        Billing
-      </button>
-      <ul id="section1" class="pl-6 mt-2 space-y-2">
-        <router-link to="/billingpec" class="hover:text-blue-100">Client Specifics</router-link>
-        <router-link to="/billingcontact" class="hover:text-blue-100">Client Contacts</router-link>
-        <router-link to="/billingkudos" class="hover:text-blue-100">Department Testimonials</router-link>
-      </ul>
+    <!-- Gallery -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+      <img src="https://via.placeholder.com/300x200" alt="Claims System Launch" class="rounded shadow">
+      <img src="https://via.placeholder.com/300x200" alt="ISO Certification" class="rounded shadow">
+      <img src="https://via.placeholder.com/300x200" alt="Data Team Expansion" class="rounded shadow">
     </div>
 
-    <!-- Section 2 
-     <div class="mt-4">
-      <button
-        class="w-full text-left px-4 py-2 font-semibold uppercase text-sm text-gray-400 hover:text-white"
-        onclick="toggle('section1')">
-        Data
-      </button>
-      <ul id="section1" class="pl-6 mt-2 space-y-2">
-        <router-link to="/dataspec" class="hover:text-blue-100">Client Specifics</router-link>
-        <router-link to="/datacontact" class="hover:text-blue-100">Client Contacts</router-link>
-        <router-link to="/datakudos" class="hover:text-blue-100">Department Testimonials</router-link>
-      </ul>
-    </div>
--->
-<button
-  onclick="toggleSidebar()"
-  class="fixed top-4 left-4 z-50 bg-blue-600 text-white px-3 py-2 rounded-md shadow hover:bg-blue-700 md:hidden"
->
-  X
-</button>
+    <!-- Directory -->
+    <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">
+      Department Directory
+    </h2>
+    <table class="w-full border border-gray-200 mb-6">
+      <thead class="bg-blue-100">
+        <tr>
+          <th class="border px-4 py-2 text-left">Department</th>
+          <th class="border px-4 py-2 text-left">Function</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border px-4 py-2">Billing</td>
+          <td class="border px-4 py-2">Manages invoices, payment processing, financial records, and ensures compliance
+            with accounting standards.</td>
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">Data</td>
+          <td class="border px-4 py-2">Handles analytics, reporting, database management, and supports decision-making
+            with insights.</td>
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">Claims</td>
+          <td class="border px-4 py-2">Processes client claims, verifies documentation, and ensures timely resolution of
+            cases.</td>
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">Routing</td>
+          <td class="border px-4 py-2">Directs requests to appropriate departments, manages communication flow, and
+            optimizes response times.</td>
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">Quality Assurance</td>
+          <td class="border px-4 py-2">Monitors service quality, conducts audits, and implements improvements for
+            customer
+            satisfaction.</td>
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">Workflow Development</td>
+          <td class="border px-4 py-2">Designs, tests, and optimizes workflows to enhance efficiency and reduce
+            operational bottlenecks.</td>
+        </tr>
+      </tbody>
+    </table>
 
-<!-- Sidebar -->
-<aside
-  id="sidebar"
-  class="fixed inset-y-0 left-0 w-64 bg-gray-900 text-gray-200 transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-40 flex flex-col"
->
-
-  <!-- Header -->
-  <div class="px-5 py-4 text-xl font-bold border-b border-gray-700">
-    Philomathes Menu
-  </div>
-
-  <!-- Navigation -->
-  <nav class="flex-1 overflow-y-auto px-2 py-4 space-y-2">
-
-    <!-- Billing -->
-    <div>
-      <button
-        onclick="toggleMenu('billingmenu')"
-        class="flex items-center w-full px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-800"
-      >
-        <!-- Icon -->
-        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-10v2m0 12v2" />
-        </svg>
-
-        Billing
-
-        <!-- Badge -->
-        <span class="ml-auto bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full">
-          3
-        </span>
-      </button>
-
-      <div id="billingmenu" class="ml-10 mt-2 space-y-1">
-        <router-link to="/billingpec" class="hover:text-blue-100">Client Specifics</router-link>
-        <router-link to="/billingcontact" class="hover:text-blue-100">Client Contacts</router-link>
-        <router-link to="/billingkudos" class="hover:text-blue-100">Department Testimonials</router-link>
-      </div>
-    </div>
-
-    <!-- Data -->
-    <div>
-      <button
-        onclick="toggleMenu('datamenu')"
-        class="flex items-center w-full px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-800"
-      >
-        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-        </svg>
-
-        Data
-      </button>
-
-      <div id="datamenu" class="ml-10 mt-2 space-y-1 hidden">
-        <router-link to="/dataspec" class="hover:text-blue-100">Client Specifics</router-link>
-        <router-link to="/datacontact" class="hover:text-blue-100">Client Contacts</router-link>
-        <router-link to="/datakudos" class="hover:text-blue-100">Department Testimonials</router-link>
-      </div>
-    </div>
-
-  </nav>
-
-  <!-- Footer -->
-  <div class="border-t border-gray-700 px-4 py-3 text-sm">
-    <p class="font-semibold">The Philomathes Workflow</p>
-    <p class="text-gray-400">v1.0.0</p>
-  </div>
-</aside>
-
-
-
-
-
-<!-- Main Content -->
-<main class="md:ml-64 p-8">
-  <!-- Company News -->
-  <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">
-    Company News & Updates
-  </h2>
-  <ul class="list-disc list-inside mb-6 text-gray-700">
-    <li><strong>Jan 20 2026; 2:32:20am PST  :</strong> Launched new claims processing system.</li>
-    <li><strong>Dec 02 2025; 9:42:52am PST  :</strong> Achieved ISO 9001 certification.</li>
-    <li><strong>Nov 14 2025; 5:12:13am PST  :</strong> Expanded Data Department with analytics team.</li>
-  </ul>
-
-  <!-- Gallery -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-    <img src="https://via.placeholder.com/300x200" alt="Claims System Launch" class="rounded shadow">
-    <img src="https://via.placeholder.com/300x200" alt="ISO Certification" class="rounded shadow">
-    <img src="https://via.placeholder.com/300x200" alt="Data Team Expansion" class="rounded shadow">
-  </div>
-
-  <!-- Directory -->
-  <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">
-    Department Directory
-  </h2>
-  <table class="w-full border border-gray-200 mb-6">
-    <thead class="bg-blue-100">
-      <tr>
-        <th class="border px-4 py-2 text-left">Department</th>
-        <th class="border px-4 py-2 text-left">Function</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="border px-4 py-2">Billing</td>
-        <td class="border px-4 py-2">Manages invoices, payment processing, financial records, and ensures compliance
-          with accounting standards.</td>
-      </tr>
-      <tr>
-        <td class="border px-4 py-2">Data</td>
-        <td class="border px-4 py-2">Handles analytics, reporting, database management, and supports decision-making
-          with insights.</td>
-      </tr>
-      <tr>
-        <td class="border px-4 py-2">Claims</td>
-        <td class="border px-4 py-2">Processes client claims, verifies documentation, and ensures timely resolution of
-          cases.</td>
-      </tr>
-      <tr>
-        <td class="border px-4 py-2">Routing</td>
-        <td class="border px-4 py-2">Directs requests to appropriate departments, manages communication flow, and
-          optimizes response times.</td>
-      </tr>
-      <tr>
-        <td class="border px-4 py-2">Quality Assurance</td>
-        <td class="border px-4 py-2">Monitors service quality, conducts audits, and implements improvements for customer
-          satisfaction.</td>
-      </tr>
-      <tr>
-        <td class="border px-4 py-2">Workflow Development</td>
-        <td class="border px-4 py-2">Designs, tests, and optimizes workflows to enhance efficiency and reduce
-          operational bottlenecks.</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- Employee Stats -->
-  <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">
-    Employee Statistics
-  </h2>
-  <ul class="list-disc list-inside mb-6 text-gray-700">
-    <li>Total Employees: 250</li>
-    <li>Average Tenure: 5 years</li>
-    <li>Departments: 6</li>
-    <li>Remote Workforce: 40%</li>
-  </ul>
-</main>
+    <!-- Employee Stats -->
+    <h2 class="text-lg sm:text-xl md:text-2xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">
+      Employee Statistics
+    </h2>
+    <ul class="list-disc list-inside mb-6 text-gray-700">
+      <li>Total Employees: 250</li>
+      <li>Average Tenure: 5 years</li>
+      <li>Departments: 6</li>
+      <li>Remote Workforce: 40%</li>
+    </ul>
+  </main>
   <!-- Footer -->
   <footer class="bg-blue-600 text-white p-4 rounded-lg mt-8 text-sm">
     <p class="font-semibold">Our Company Inc.</p>
@@ -212,7 +91,8 @@
   </footer>
 </div>
 </div>
-  <!-- Toggle Script -->
-   <div class=" border-blue-400 flex-box">
-    Quick Links
-   </div>
+
+<!-- Toggle Script -->
+<div class=" border-blue-400 flex-box">
+  Quick Links
+</div>

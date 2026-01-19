@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Department Portal</title>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
 
 <body class="bg-blue-50 text-gray-800">
@@ -12,13 +12,7 @@
   <div id="app">
 
     <div class="w-full flex flex-col">
-      <div class="w-full">
-        <header-component/>
-      </div>
-      <div class="w-full">
-        <router-view></router-view>
-      </div>
-
+      <header-component />
     </div>
 
   </div>
