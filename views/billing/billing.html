@@ -1,4 +1,4 @@
-<div class="max-w-5xl mx-auto p-8 bg-white shadow-sm rounded-lg mt-6">
+<div class="max-w-5xl mx-auto p-8 bg-blue-100 shadow-sm rounded-lg mt-6">
   <h1 class="text-3xl font-bold mb-4 text-blue-700">Billing Department</h1>
   <p class="mb-6 text-gray-600">
     The Billing Department manages invoices, payments, refunds, and cancellations,
@@ -9,9 +9,9 @@
   <section class="mb-8">
     <h2 class="text-xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">Billing Department News</h2>
     <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
-      <li><strong>Jan 2026:</strong> Workflow update for automated invoice generation.</li>
-      <li><strong>Feb 2026:</strong> Upcoming meeting on refund policy improvements.</li>
-      <li><strong>Mar 2026:</strong> Training session scheduled for handling cancellations more efficiently.</li>
+      <li><strong>Jan 23,2026 2:50:23 PM PST:</strong> Workflow update for automated invoice generation.</li>
+      <li><strong>Dec 1 2025 1:40:53 PM PST:</strong> Meeting on refund policy improvements.</li>
+      <li><strong>Oct 27 2025 4:23:53 PM PST:</strong> Training session scheduled for handling cancellations more efficiently.</li>
     </ul>
     <!-- Collapsible Detailed Update -->
     <details class="bg-gray-50 border border-gray-200 rounded p-4 shadow">
@@ -48,10 +48,10 @@
 
   <!-- Workflows -->
   <section v-for="wf in filteredWorkflows" :key="wf.type" class="mb-8">
-    <h2 class="text-xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">
+    <h2 class="text-xl font-semibold mb-2 text-white bg-blue-400 p-2 rounded">
       Workflow: {{ wf.type }}
     </h2>
-    <ol class="list-decimal list-inside text-gray-700 space-y-2">
+    <ol class="list-decimal list-inside text-gray-700 bg-blue-200 space-y-2">
       <li v-for="(step, index) in wf.steps" :key="index">{{ step }}</li>
     </ol>
   </section>
