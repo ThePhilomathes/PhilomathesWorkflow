@@ -20,14 +20,14 @@
             class="flex items-center w-full px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-800">
             <i :class="menu.icon" class="me-1"></i>
             
-           <router-link :to="menu.link" class="hover:text-sky-300">{{menu.header}} </router-link>
+           <router-link :to="menu.link" class="hover:text-sky-300 font-semibold text-lg">{{menu.header}} </router-link>
             <span class="ml-auto bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full">
               {{menu.sub.length}}
             </span>
           </button>
           <div class="ml-10 mt-2 space-y-1 flex flex-col">
             <template v-for="sub of menu.sub">
-              <router-link :to="sub.link" class="hover:text-blue-100">{{sub.header}}</router-link>
+              <router-link :to="sub.link" class="hover:text-blue-500">{{sub.header}}</router-link>
             </template>
           </div>
         </div>
@@ -77,12 +77,12 @@
        <div class="flex">
       <nav class="hidden sm:flex gap-2">
         <router-link to="/" class="p-1 font-semibold  hover:text-yellow-500">Main Page</router-link>
-        <router-link to="/billing" class="p-1 font-semibold  hover:text-yellow-500">About Us</router-link>
-        <router-link to="/data" class="p-1 font-semibold  hover:text-yellow-500">Company Leadership</router-link>
-        <router-link to="/claims" class="p-1 font-semibold  hover:text-yellow-500">Development Team</router-link>
-        <router-link to="/routing" class="p-1 font-semibold  hover:text-yellow-500">Quick Links</router-link>
-        <router-link to="/qa" class="p-1 font-semibold  hover:text-yellow-500">Contact Us</router-link>
-        <router-link to="/workflow" class="p-1 font-semibold  hover:text-yellow-500">Feedback Form</router-link>
+        <router-link to="/aboutus" class="p-1 font-semibold  hover:text-yellow-500">About Us</router-link>
+        <router-link to="/companylead" class="p-1 font-semibold  hover:text-yellow-500">Company Leadership</router-link>
+        <router-link to="/developmentteam" class="p-1 font-semibold  hover:text-yellow-500">Development Team</router-link>
+        <router-link to="/quicklinks" class="p-1 font-semibold  hover:text-yellow-500">Quick Links</router-link>
+        <router-link to="/contactus" class="p-1 font-semibold  hover:text-yellow-500">Contact Us</router-link>
+        <router-link to="/feedbackform" class="p-1 font-semibold  hover:text-yellow-500">Feedback Form</router-link>
       </nav>
       </div>
     </header>
@@ -90,12 +90,12 @@
     <!-- Mobile Menu -->
     <nav v-if="menuOpen" class="sm:hidden bg-blue-300 text-white px-6 py-4 flex flex-col gap-4">
         <router-link to="/" class="p-1 font-semibold  hover:text-yellow-500">Main Page</router-link>
-        <router-link to="/billing" class="p-1 font-semibold  hover:text-yellow-500">About Us</router-link>
-        <router-link to="/data" class="p-1 font-semibold  hover:text-yellow-500">Company Leadership</router-link>
-        <router-link to="/claims" class="p-1 font-semibold  hover:text-yellow-500">Development Team</router-link>
-        <router-link to="/routing" class="p-1 font-semibold  hover:text-yellow-500">Quick Links</router-link>
-        <router-link to="/qa" class="p-1 font-semibold  hover:text-yellow-500">Contact Us</router-link>
-        <router-link to="/workflow" class="p-1 font-semibold  hover:text-yellow-500">Feedback Form</router-link>
+        <router-link to="/aboutus" class="p-1 font-semibold  hover:text-yellow-500">About Us</router-link>
+        <router-link to="/companylead" class="p-1 font-semibold  hover:text-yellow-500">Company Leadership</router-link>
+        <router-link to="/developmentteam" class="p-1 font-semibold  hover:text-yellow-500">Development Team</router-link>
+        <router-link to="/quicklinks" class="p-1 font-semibold  hover:text-yellow-500">Quick Links</router-link>
+        <router-link to="/contactus" class="p-1 font-semibold  hover:text-yellow-500">Contact Us</router-link>
+        <router-link to="/feedbackform" class="p-1 font-semibold  hover:text-yellow-500">Feedback Form</router-link>
     </nav>
 
 

@@ -1,6 +1,4 @@
 
-
-
 const billingKudosComponent = defineAsyncComponent(async() =>{
   return {
       data() {
@@ -108,7 +106,7 @@ const billingKudosComponent = defineAsyncComponent(async() =>{
                     ]
                     ,
                     manager: 
-                        "Zean",
+                        "Generating Invoice",
 
                     examples: [ 
                         { 
@@ -121,17 +119,32 @@ const billingKudosComponent = defineAsyncComponent(async() =>{
             ]
         }
     },
+
 computed: {
   filteredWorkflows() {
     if (!this.searchQuery) return this.workflows
     const query = this.searchQuery.toLowerCase()
-    return this.workflows.filter(wf =>
-      wf.type.toLowerCase().includes(query) ||
-      wf.steps.some(step => step.toLowerCase().includes(query)) ||
-      (wf.manager && wf.manager.toLowerCase().includes(query))
-    )
+
+    return this.workflows
+      .map(wf => {
+        let score = 0
+
+        // Strong match: workflow name
+        if (wf.type.toLowerCase().includes(query)) score += 3
+
+        // Medium match: steps
+        if (wf.steps.some(step => step.toLowerCase().includes(query))) score += 2
+
+        // Weak match: manager
+        if (wf.manager && wf.manager.toLowerCase().includes(query)) score += 1
+
+        return { ...wf, score }
+      })
+      .filter(wf => wf.score > 0) // keep only matches
+      .sort((a, b) => b.score - a.score) // sort by score descending
   }
 },
+
     template: await getHTML('./views/billing/submenu/billingKudos.html')
   }
 });

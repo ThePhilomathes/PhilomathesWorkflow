@@ -12,6 +12,22 @@ const routes = [
     // Data Router Views//
     { path: '/data', component: DataComponent, name: 'Data' },
     { path: '/dataspec', component: dataSpecComponent, name: 'Data Client Specifics' },
+
+    // // About Us Link
+    { path: '/aboutus', component: aboutUsComponent, name: 'About Us' },
+    // // Company Leadership Link
+    // { path: '/companylead', component: companyLeadComponent, name: 'Company Leadership' },
+    // // Development Team Link
+    // { path: '/developmentteam', component: developmentTeamComponent, name: 'Developement Team' },
+    // // Quick Links Link
+    // { path: '/quicklinks', component: quickLinksComponent, name: 'Quick Links' },
+    // // Contact Us Link
+    { path: '/contactus', component: contactUsComponent, name: 'Contact Us' },
+    // // Feedback Form Link
+    // { path: '/feedbackform', component: feedbackFormComponent, name: 'Feedback Form' },
+
+
+    //TO BE ADDED LINKS
     // { path: '/data', component: Data },
     // { path: '/claims', component: Claims },
     // { path: '/routing', component: Routing },
