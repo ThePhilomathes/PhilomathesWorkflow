@@ -1,7 +1,7 @@
 
 
 
-const billingComponent = defineAsyncComponent(async() =>{
+const billingKudosComponent = defineAsyncComponent(async() =>{
   return {
       data() {
         return {
@@ -132,7 +132,7 @@ computed: {
     )
   }
 },
-    template: await getHTML('./views/billing/billing.html')
+    template: await getHTML('./views/billing/submenu/billingKudos.html')
   }
 });
 

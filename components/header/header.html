@@ -1,7 +1,7 @@
-<div class="flex">
+<div class=" min-h-screen flex">
 
   <!-- Sidebar -->
-  <aside id="sidebar" class="h-full h-screen fixed inset-y-0 w-64 bg-gray-900 text-gray-200
+  <aside id="sidebar" class=" fixed inset-y-0 w-64 bg-gray-900 text-gray-200
          transition-transform duration-500 z-4 flex flex-col
          " :class="isSideBarOpen ? 'translate-x-0 sm:static' : '-translate-x-full'">
 
@@ -77,25 +77,25 @@
        <div class="flex">
       <nav class="hidden sm:flex gap-2">
         <router-link to="/" class="p-1 font-semibold  hover:text-yellow-500">Main Page</router-link>
-        <router-link to="/billing" class="p-1 font-semibold  hover:text-yellow-500">Billing</router-link>
-        <router-link to="/data" class="p-1 font-semibold  hover:text-yellow-500">Data</router-link>
-        <router-link to="/claims" class="p-1 font-semibold  hover:text-yellow-500">Claims</router-link>
-        <router-link to="/routing" class="p-1 font-semibold  hover:text-yellow-500">Routing</router-link>
-        <router-link to="/qa" class="p-1 font-semibold  hover:text-yellow-500">Quality Assurance</router-link>
-        <router-link to="/workflow" class="p-1 font-semibold  hover:text-yellow-500">Workflow</router-link>
+        <router-link to="/billing" class="p-1 font-semibold  hover:text-yellow-500">About Us</router-link>
+        <router-link to="/data" class="p-1 font-semibold  hover:text-yellow-500">Company Leadership</router-link>
+        <router-link to="/claims" class="p-1 font-semibold  hover:text-yellow-500">Development Team</router-link>
+        <router-link to="/routing" class="p-1 font-semibold  hover:text-yellow-500">Quick Links</router-link>
+        <router-link to="/qa" class="p-1 font-semibold  hover:text-yellow-500">Contact Us</router-link>
+        <router-link to="/workflow" class="p-1 font-semibold  hover:text-yellow-500">Feedback Form</router-link>
       </nav>
       </div>
     </header>
 
     <!-- Mobile Menu -->
     <nav v-if="menuOpen" class="sm:hidden bg-blue-300 text-white px-6 py-4 flex flex-col gap-4">
-      <router-link to="/" class="p-1 font-semibold  hover:text-yellow-500">Main Page</router-link>
-      <router-link to="/billing" class="p-1 font-semibold  hover:text-yellow-500">Billing</router-link>
-      <router-link to="/data" class="p-1 font-semibold  hover:text-yellow-500">Data</router-link>
-      <router-link to="/claims" class="p-1 font-semibold  hover:text-yellow-500">Claims</router-link>
-      <router-link to="/routing" class="p-1 font-semibold  hover:text-yellow-500">Routing</router-link>
-      <router-link to="/qa" class="p-1 font-semibold  hover:text-yellow-500">Quality Assurance</router-link>
-      <router-link to="/workflow" class="p-1 font-semibold  hover:text-yellow-500">Workflow</router-link>
+        <router-link to="/" class="p-1 font-semibold  hover:text-yellow-500">Main Page</router-link>
+        <router-link to="/billing" class="p-1 font-semibold  hover:text-yellow-500">About Us</router-link>
+        <router-link to="/data" class="p-1 font-semibold  hover:text-yellow-500">Company Leadership</router-link>
+        <router-link to="/claims" class="p-1 font-semibold  hover:text-yellow-500">Development Team</router-link>
+        <router-link to="/routing" class="p-1 font-semibold  hover:text-yellow-500">Quick Links</router-link>
+        <router-link to="/qa" class="p-1 font-semibold  hover:text-yellow-500">Contact Us</router-link>
+        <router-link to="/workflow" class="p-1 font-semibold  hover:text-yellow-500">Feedback Form</router-link>
     </nav>
 
 

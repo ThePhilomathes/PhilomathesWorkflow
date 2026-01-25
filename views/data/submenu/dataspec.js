@@ -1,7 +1,7 @@
 
 
 
-const DataComponent = defineAsyncComponent(async() =>{
+const dataSpecComponent = defineAsyncComponent(async() =>{
   return {
       data() {
         return {
@@ -90,7 +90,7 @@ const DataComponent = defineAsyncComponent(async() =>{
             )
         }
     },
-    template: await getHTML('./views/data/data.html')
+    template: await getHTML('./views/data/submenu/dataspec.html')
   }
 });
 
