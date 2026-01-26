@@ -1,4 +1,4 @@
-const billingSpecComponent = defineAsyncComponent(async() =>{
+const billingspecComponent = defineAsyncComponent(async() =>{
   return {
       data() {
         return {

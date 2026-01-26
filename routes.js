@@ -6,7 +6,8 @@ const routes = [
 
     // Billing Router Views//
     { path: '/billing', component: billingComponent, name: 'Billing' },
-
+    { path: '/billingspec', component: billingspecComponent, name: 'Billing Client Specifics' },
+    { path: '/billingkudos', component: billingkudosComponent, name: 'Billing Testimonials' },
 
     // Data Router Views//
     { path: '/data', component: DataComponent, name: 'Data' },
@@ -14,21 +15,20 @@ const routes = [
 
     // // About Us Link
     { path: '/aboutus', component: aboutUsComponent, name: 'About Us' },
+    { path: '/contactus', component: contactUsComponent, name: 'Contact Us' },
+
+    // Submenu Router Views//
+
+    //TO BE ADDED LINKS
+
     // // Company Leadership Link
     // { path: '/companylead', component: companyLeadComponent, name: 'Company Leadership' },
     // // Development Team Link
     // { path: '/developmentteam', component: developmentTeamComponent, name: 'Developement Team' },
     // // Quick Links Link
     // { path: '/quicklinks', component: quickLinksComponent, name: 'Quick Links' },
-    // // Contact Us Link
-    { path: '/contactus', component: contactUsComponent, name: 'Contact Us' },
-    // // Feedback Form Link
+    // // Feedback Link
     // { path: '/feedbackform', component: feedbackFormComponent, name: 'Feedback Form' },
-+
-    // Submenu Router Views//
-    { path: '/billingspec', component: billingSpecComponent, name: 'Billing Client Specifics' },
-    { path: '/billingkudos', component: billingKudosComponent, name: 'Billing Testimonials' },
-    //TO BE ADDED LINKS
     // { path: '/data', component: Data },
     // { path: '/claims', component: Claims },
     // { path: '/routing', component: Routing },

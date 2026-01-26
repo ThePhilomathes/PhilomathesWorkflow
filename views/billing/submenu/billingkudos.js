@@ -1,5 +1,5 @@
 
-const billingKudosComponent = defineAsyncComponent(async() =>{
+const billingkudosComponent = defineAsyncComponent(async() =>{
   return {
       data() {
         return {
