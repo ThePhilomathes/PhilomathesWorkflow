@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Company Portal</title>
+  <!-- Vue 3 and Vue Router -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/vue-router@4"></script>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blue-50 text-gray-800">
+  <div id="app">
+    <!-- Global Header -->
+    <header class="bg-blue-400 text-white px-6 py-4 flex items-center justify-between">
+      <div>
+        <h1 class="text-xl sm:text-2xl font-bold">Sample Company Inc.</h1>
+        <p class="text-sm sm:text-base">Phone: +63 2 1234 5678 | Fax: +63 2 8765 4321</p>
+      </div>
+      <!-- Navigation -->
+      <nav class="hidden sm:flex gap-6">
+        <router-link to="/" class="hover:text-blue-100">Main Page</router-link>
+        <router-link to="/billing" class="hover:text-blue-100">Billing</router-link>
+        <router-link to="/data" class="hover:text-blue-100">Data</router-link>
+        <router-link to="/claims" class="hover:text-blue-100">Claims</router-link>
+        <router-link to="/routing" class="hover:text-blue-100">Routing</router-link>
+        <router-link to="/qa" class="hover:text-blue-100">QA</router-link>
+        <router-link to="/workflow" class="hover:text-blue-100">Workflow</router-link>
+      </nav>
+    </header>
+
+    <!-- Active Page -->
+    <router-view></router-view>
+  </div>
+
+  <script>
+
+
+    // Billing Component
+    const Billing = {
+      data() {
+        return {
+          searchQuery: "",
+          workflows: [
+            {
+              type: "Invoices",
+              steps: [
+                "Receive service completion confirmation from relevant department",
+                "Generate invoice using billing system",
+                "Verify invoice details for accuracy",
+                "Send invoice to client via email or portal",
+                "Track payment status and update records",
+                "Follow up with client for pending payments"
+              ]
+            },
+            {
+              type: "Refunds",
+              steps: [
+                "Receive refund request from client",
+                "Validate request against company policy",
+                "Confirm payment details and transaction history",
+                "Process refund through financial system",
+                "Notify client of refund completion",
+                "Update records and report to finance team"
+              ]
+            },
+            {
+              type: "Cancellations",
+              steps: [
+                "Receive cancellation request from client",
+                "Verify request details and eligibility",
+                "Check if invoice/payment has been issued",
+                "Adjust billing records accordingly",
+                "Issue refund if applicable",
+                "Confirm cancellation with client and update system"
+              ]
+            }
+          ]
+        }
+      },
+      computed: {
+        filteredWorkflows() {
+          if (!this.searchQuery) return this.workflows
+          const query = this.searchQuery.toLowerCase()
+          return this.workflows.filter(wf =>
+            wf.type.toLowerCase().includes(query) ||
+            wf.steps.some(step => step.toLowerCase().includes(query))
+          )
+        }
+      },
+      template: `
+        <div class="max-w-5xl mx-auto p-8 bg-white shadow-sm rounded-lg mt-6">
+          <h1 class="text-3xl font-bold mb-4 text-blue-700">Billing Department</h1>
+          <p class="mb-6 text-gray-600">
+            The Billing Department manages invoices, payments, refunds, and cancellations,
+            ensuring financial accuracy and compliance.
+          </p>
+
+          <!-- Updates -->
+          <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">Billing Department News</h2>
+            <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+              <li><strong>Jan 2026:</strong> Workflow update for automated invoice generation.</li>
+              <li><strong>Feb 2026:</strong> Upcoming meeting on refund policy improvements.</li>
+              <li><strong>Mar 2026:</strong> Training session scheduled for handling cancellations more efficiently.</li>
+            </ul>
+            <!-- Collapsible Detailed Update -->
+            <details class="bg-gray-50 border border-gray-200 rounded p-4 shadow">
+              <summary class="cursor-pointer text-blue-700 font-semibold">
+                View Detailed Update: Automated Invoice Workflow
+              </summary>
+              <div class="mt-4 space-y-4">
+                <h4 class="font-semibold text-gray-800">Previous Workflow</h4>
+                <ol class="list-decimal list-inside text-gray-700 space-y-1">
+                  <li>Manual entry of invoice details into Excel.</li>
+                  <li>Cross-check invoice with finance team.</li>
+                  <li>Send invoice PDF manually to client.</li>
+                  <li>Track payments using spreadsheets.</li>
+                </ol>
+                <h4 class="font-semibold text-gray-800 mt-4">Updated Workflow</h4>
+                <ol class="list-decimal list-inside text-gray-700 space-y-1">
+                  <li>Service completion auto-logged in billing system.</li>
+                  <li>Invoice auto-generated with client details pre-filled.</li>
+                  <li>System validation ensures accuracy before sending.</li>
+                  <li>Invoice automatically emailed to client via portal.</li>
+                  <li>Payments tracked in real-time dashboard.</li>
+                </ol>
+              </div>
+            </details>
+          </section>
+
+          <!-- Search -->
+          <section class="bg-blue-100 p-4 rounded shadow mb-8">
+            <h2 class="text-xl font-semibold mb-2 text-blue-700">🔍 Search Workflow Process</h2>
+            <input v-model="searchQuery" type="text" placeholder="Type to search workflows..."
+              class="w-full p-3 border rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <p class="text-sm text-gray-600 mt-2">Enter keywords like "invoice", "refund", or "cancellation".</p>
+          </section>
+
+          <!-- Workflows -->
+          <section v-for="wf in filteredWorkflows" :key="wf.type" class="mb-8">
+            <h2 class="text-xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">
+              Workflow: {{ wf.type }}
+            </h2>
+            <ol class="list-decimal list-inside text-gray-700 space-y-2">
+              <li v-for="(step, index) in wf.steps" :key="index">{{ step }}</li>
+            </ol>
+          </section>
+        </div>
+      `
+
+    }
+
+    const Data = {
+      data() {
+        return {
+          searchQuery: "",
+          workflows: [
+            {
+              type: "Invoices",
+              steps: [
+                "Receive service completion confirmation from relevant department",
+                "Generate invoice using billing system",
+                "Verify invoice details for accuracy",
+                "Send invoice to client via email or portal",
+                "Track payment status and update records",
+                "Follow up with client for pending payments"
+              ]
+            },
+            {
+              type: "Refunds",
+              steps: [
+                "Receive refund request from client",
+                "Validate request against company policy",
+                "Confirm payment details and transaction history",
+                "Process refund through financial system",
+                "Notify client of refund completion",
+                "Update records and report to finance team"
+              ]
+            },
+            {
+              type: "Cancellations",
+              steps: [
+                "Receive cancellation request from client",
+                "Verify request details and eligibility",
+                "Check if invoice/payment has been issued",
+                "Adjust billing records accordingly",
+                "Issue refund if applicable",
+                "Confirm cancellation with client and update system"
+              ]
+            }
+          ]
+        }
+      },
+      computed: {
+        filteredWorkflows() {
+          if (!this.searchQuery) return this.workflows
+          const query = this.searchQuery.toLowerCase()
+          return this.workflows.filter(wf =>
+            wf.type.toLowerCase().includes(query) ||
+            wf.steps.some(step => step.toLowerCase().includes(query))
+          )
+        }
+      },
+      template: `
+        <div class="max-w-5xl mx-auto p-8 bg-white shadow-sm rounded-lg mt-6">
+          <h1 class="text-3xl font-bold mb-4 text-blue-700">Data Department</h1>
+          <p class="mb-6 text-gray-600">
+            The Data Department manages handles analytics, reporting, database management, 
+            and supports decision-making with insights.
+          </p>
+
+          <!-- Updates -->
+          <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">Billing Department News</h2>
+            <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+              <li><strong>Jan 2026:</strong> Workflow update for automated invoice generation.</li>
+              <li><strong>Feb 2026:</strong> Upcoming meeting on refund policy improvements.</li>
+              <li><strong>Mar 2026:</strong> Training session scheduled for handling cancellations more efficiently.</li>
+            </ul>
+            <!-- Collapsible Detailed Update -->
+            <details class="bg-gray-50 border border-gray-200 rounded p-4 shadow">
+              <summary class="cursor-pointer text-blue-700 font-semibold">
+                View Detailed Update: Automated Invoice Workflow
+              </summary>
+              <div class="mt-4 space-y-4">
+                <h4 class="font-semibold text-gray-800">Previous Workflow</h4>
+                <ol class="list-decimal list-inside text-gray-700 space-y-1">
+                  <li>Manual entry of invoice details into Excel.</li>
+                  <li>Cross-check invoice with finance team.</li>
+                  <li>Send invoice PDF manually to client.</li>
+                  <li>Track payments using spreadsheets.</li>
+                </ol>
+                <h4 class="font-semibold text-gray-800 mt-4">Updated Workflow</h4>
+                <ol class="list-decimal list-inside text-gray-700 space-y-1">
+                  <li>Service completion auto-logged in billing system.</li>
+                  <li>Invoice auto-generated with client details pre-filled.</li>
+                  <li>System validation ensures accuracy before sending.</li>
+                  <li>Invoice automatically emailed to client via portal.</li>
+                  <li>Payments tracked in real-time dashboard.</li>
+                </ol>
+              </div>
+            </details>
+          </section>
+
+          <!-- Search -->
+          <section class="bg-blue-100 p-4 rounded shadow mb-8">
+            <h2 class="text-xl font-semibold mb-2 text-blue-700">🔍 Search Workflow Process</h2>
+            <input v-model="searchQuery" type="text" placeholder="Type to search workflows..."
+              class="w-full p-3 border rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <p class="text-sm text-gray-600 mt-2">Enter keywords like "invoice", "refund", or "cancellation".</p>
+          </section>
+
+          <!-- Workflows -->
+          <section v-for="wf in filteredWorkflows" :key="wf.type" class="mb-8">
+            <h2 class="text-xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">
+              Workflow: {{ wf.type }}
+            </h2>
+            <ol class="list-decimal list-inside text-gray-700 space-y-2">
+              <li v-for="(step, index) in wf.steps" :key="index">{{ step }}</li>
+            </ol>
+          </section>
+        </div>
+      `
+    }
+
+    // Other placeholder components
+
+    const Claims = { template: `<div class="p-8">Claims Department Page</div>` }
+    const Routing = { template: `<div class="p-8">Routing Department Page</div>` }
+    const QA = { template: `<div class="p-8">Quality Assurance Page</div>` }
+    const Workflow = { template: `<div class="p-8">Workflow Development Page</div>` }
+
+    // Router Setup
+    const routes = [
+      { path: '/', component: Main },
+      { path: '/billing', component: Billing },
+      { path: '/data', component: Data },
+      { path: '/claims', component: Claims },
+      { path: '/routing', component: Routing },
+      { path: '/qa', component: QA },
+      { path: '/workflow', component: Workflow }
+    ]
+
+    const router = VueRouter.createRouter({
+      history: VueRouter.createWebHashHistory(),
+      routes
+    })
+
+    const app = Vue.createApp({})
+    app.use(router)
+    app.mount('#app')
+  </script>
+</body>
+</html>

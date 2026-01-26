@@ -1,14 +1,51 @@
-<!doctype html>
-<html lang="">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="img-src 'self' https: data:;" />
-    <title>Department Portal</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Department Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+<body class="bg-blue-50 text-gray-800">
+
+  <div id="app">
+
+    <div class="w-full flex flex-col">
+      <header-component />
+    </div>
+
+  </div>
+
+
+  <!-- Vue 3 and Vue Router via CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script>
+  <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.js" defer></script>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com" defer></script>
+
+  <!-- Router Views (JS LINKS) -->
+  <script src="index.js" defer> </script>
+  <script src="components/header/header.js" defer></script>
+  <script src="./views/main/main.js" defer></script>
+  <script src="./views/aboutus/aboutus.js" defer></script>
+  <script src="./views/devteam/devteam.js" defer></script>
+  <script src="./views/testimonials/kudos.js" defer></script>
+  <!-- Billing Links/Pages -->
+  <script src="./views/billing/submenu/billingspec.js" defer></script>
+  <script src="./views/billing/submenu/billingkudos.js" defer></script>
+  <script src="./views/billing/billing.js" defer></script>
+  <script src="./views/contactus/contactus.js" defer></script>
+  <!-- Data Links/Pages -->
+  <script src="./views/data/data.js" defer></script>
+  <script src="./views/data/submenu/dataspec.js" defer></script>
+  <script src="routes.js" defer> </script>
+
+
+
+
+
+
+</body>
+
 </html>

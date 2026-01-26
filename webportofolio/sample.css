@@ -1,0 +1,92 @@
+:root {
+    --gallery-height: 2rem; /* Adjust this to your preferred gallery height */
+    --gap-size: 30px;
+     --item-width: 400px;  /* Change this to make all images wider/narrower */
+    --item-height: 300px; /* Change this to make all images taller/shorter */
+}
+
+.gallery-container {
+    width: var(--item-width);
+    /* Max-width is removed to allow images to breathe at their natural sizes */
+    margin: 50px auto;
+    overflow: hidden;
+}
+
+.gallery-track {
+    display: flex;
+    gap: var(--gap-size); /* Adds physical space after each image */
+    animation: individual-show 12s infinite ease-in-out;
+}
+
+.gallery-item {
+    width: 220px;
+    flex-shrink: 0; /* Mandatory: prevents images from shrinking to fit */
+    text-align: center;
+}
+
+.image-box {
+    /* The box now has fixed, uniform dimensions */
+    width: var(--item-width);
+    height: var(--item-height); 
+    border: 8px solid #222;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.image-box img {
+    /* Image fills 100% of the fixed box dimensions */
+    width: 100%;
+    height: 100%;
+    /* FIX: 'cover' makes image fill the space, cropping if needed */
+    object-fit: cover; 
+    display: block;
+}
+
+.image-title {
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+/* 
+   Animation Logic for 2026:
+   Because of the 'gap', we must shift by (100% + gap size).
+   -100% moves the image, -var(--gap-size) covers the space.
+
+@keyframes individual-show {
+    /* Show Image 1 
+    0%, 20% { transform: translateX(0); } 
+    
+    /* Move to Image 2: -100% width - gap 
+    20%, 40% { transform: translateX(calc(-100% - var(--gap-size))); } 
+    
+    /* Move to Image 3: -200% width - 2 gaps
+    40%, 60% { transform: translateX(calc(-200% - (var(--gap-size) * 2))); } 
+    
+    /* Move to Clone: -300% width - 3 gaps 
+    60%, 80% { transform: translateX(calc(-300% - (var(--gap-size) * 3))); }
+
+        /* Move to Clone: -300% width - 3 gaps 
+    90%, 100% { transform: translateX(calc(-300% - (var(--gap-size) * 4))); }
+
+    */
+@keyframes individual-show {
+ 0%, 15% { transform: translateX(0); } 
+    
+    /* Image 2 (20% to 35%) */
+    20%, 35% { transform: translateX(calc(-1 * (var(--item-width) + var(--gap-size)))); } 
+    
+    /* Image 3 (40% to 55%) */
+    40%, 55% { transform: translateX(calc(-2 * (var(--item-width) + var(--gap-size)))); } 
+    
+    /* Image 4 (60% to 75%) */
+    60%, 75% { transform: translateX(calc(-3 * (var(--item-width) + var(--gap-size)))); } 
+
+    /* Image 5 (80% to 95%) */
+    80%, 95% { transform: translateX(calc(-4 * (var(--item-width) + var(--gap-size)))); }
+    
+    /* Move to Clone (96% to 100%) - instantly resets at 100% to 0% */
+    100% { transform: translateX(calc(-5 * (var(--item-width) + var(--gap-size)))); }   
+
+}

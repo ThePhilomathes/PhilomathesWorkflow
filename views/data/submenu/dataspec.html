@@ -1,0 +1,57 @@
+<div class="max-w-5xl mx-auto p-8 bg-blue-100 shadow-sm rounded-lg mt-6">
+  <h1 class="text-3xl font-bold mb-4 text-blue-700">Data Specific Client Instructions</h1>
+  <p class="mb-6 text-gray-600">
+There are currently a list of partners who requires specified actions or checklists when handling their clients.
+  </p>
+
+  <!-- Updates -->
+  <section class="mb-8">
+    <h2 class="text-xl font-semibold mb-2 text-blue-700 bg-blue-100 p-2 rounded">Billing Department News</h2>
+    <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+      <li><strong>Jan 23,2026 2:50:23 PM PST:</strong> Workflow update for automated invoice generation.</li>
+      <li><strong>Dec 1 2025 1:40:53 PM PST:</strong> Meeting on refund policy improvements.</li>
+      <li><strong>Oct 27 2025 4:23:53 PM PST:</strong> Training session scheduled for handling cancellations more efficiently.</li>
+    </ul>
+    <!-- Collapsible Detailed Update -->
+    <details class="bg-gray-50 border border-gray-200 rounded p-4 shadow">
+      <summary class="cursor-pointer text-blue-700 font-semibold">
+        View Detailed Update: Automated Invoice Workflow
+      </summary>
+      <div class="mt-4 space-y-4">
+        <h4 class="font-semibold text-gray-800">Previous Workflow</h4>
+        <ol class="list-decimal list-inside text-gray-700 space-y-1">
+          <li>Manual entry of invoice details into Excel.</li>
+          <li>Cross-check invoice with finance team.</li>
+          <li>Send invoice PDF manually to client.</li>
+          <li>Track payments using spreadsheets.</li>
+        </ol>
+        <h4 class="font-semibold text-gray-800 mt-4">Updated Workflow</h4>
+        <ol class="list-decimal list-inside text-gray-700 space-y-1">
+          <li>Service completion auto-logged in billing system.</li>
+          <li>Invoice auto-generated with client details pre-filled.</li>
+          <li>System validation ensures accuracy before sending.</li>
+          <li>Invoice automatically emailed to client via portal.</li>
+          <li>Payments tracked in real-time dashboard.</li>
+        </ol>
+      </div>
+    </details>
+  </section>
+
+  <!-- Search -->
+  <section class="bg-blue-100 p-4 rounded shadow mb-8">
+    <h2 class="text-xl font-semibold mb-2 text-blue-700">🔍 Search Workflow Process</h2>
+    <input v-model="searchQuery" type="text" placeholder="Type to search workflows..."
+      class="w-full p-3 border rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-400">
+    <p class="text-sm text-gray-600 mt-2">Enter keywords like "invoice", "refund", or "cancellation".</p>
+  </section>
+
+  <!-- Workflows -->
+  <section v-for="wf in filteredWorkflows" :key="wf.type" class="mb-8">
+    <h2 class="text-xl font-semibold mb-2 text-white bg-blue-400 p-2 rounded">
+      Workflow: {{ wf.type }}
+    </h2>
+    <ol class="list-decimal list-inside text-gray-700 bg-blue-200 space-y-2">
+      <li v-for="(step, index) in wf.steps" :key="index">{{ step }}</li>
+    </ol>
+  </section>
+</div>
