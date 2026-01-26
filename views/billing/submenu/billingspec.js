@@ -147,7 +147,7 @@ computed: {
   }
 },
 
-    template: await getHTML('./views/billing/submenu/billingSpec.html')
+    template: await getHTML('./views/billing/submenu/billingspec.html')
   }
 });
 

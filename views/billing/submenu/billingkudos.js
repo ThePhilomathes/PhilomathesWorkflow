@@ -145,7 +145,7 @@ computed: {
   }
 },
 
-    template: await getHTML('./views/billing/submenu/billingKudos.html')
+    template: await getHTML('./views/billing/submenu/billingkudos.html')
   }
 });
 
