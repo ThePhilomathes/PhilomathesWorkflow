@@ -16,15 +16,17 @@ const routes = [
     // // About Us Link
     { path: '/aboutus', component: aboutUsComponent, name: 'About Us' },
     { path: '/contactus', component: contactUsComponent, name: 'Contact Us' },
-
+    // // Development Team Link
+    { path: '/devteam', component: devTeamComponent, name: 'Developement Team' },
+    // // Kudos Link
+    { path: '/kudos', component: kudosComponent, name: 'Testimonials' },
     // Submenu Router Views//
 
     //TO BE ADDED LINKS
 
     // // Company Leadership Link
     // { path: '/companylead', component: companyLeadComponent, name: 'Company Leadership' },
-    // // Development Team Link
-    // { path: '/developmentteam', component: developmentTeamComponent, name: 'Developement Team' },
+
     // // Quick Links Link
     // { path: '/quicklinks', component: quickLinksComponent, name: 'Quick Links' },
     // // Feedback Link
