@@ -6,8 +6,7 @@ const routes = [
 
     // Billing Router Views//
     { path: '/billing', component: billingComponent, name: 'Billing' },
-    { path: '/billingspec', component: billingSpecComponent, name: 'Billing Client Specifics' },
-    { path: '/billingkudos', component: billingKudosComponent, name: 'Billing Testimonials' },
+
 
     // Data Router Views//
     { path: '/data', component: DataComponent, name: 'Data' },
@@ -25,8 +24,10 @@ const routes = [
     { path: '/contactus', component: contactUsComponent, name: 'Contact Us' },
     // // Feedback Form Link
     // { path: '/feedbackform', component: feedbackFormComponent, name: 'Feedback Form' },
-
-
++
+    // Submenu Router Views//
+    { path: '/billingspec', component: billingSpecComponent, name: 'Billing Client Specifics' },
+    { path: '/billingkudos', component: billingKudosComponent, name: 'Billing Testimonials' },
     //TO BE ADDED LINKS
     // { path: '/data', component: Data },
     // { path: '/claims', component: Claims },
