@@ -7,7 +7,6 @@ const routes = [
     // Billing Router Views//
     { path: '/billing', component: billingComponent, name: 'Billing' },
     { path: '/billingspec', component: billingspecComponent, name: 'Billing Client Specifics' },
-    { path: '/billingkudos', component: billingkudosComponent, name: 'Billing Testimonials' },
 
     // Data Router Views//
     { path: '/data', component: DataComponent, name: 'Data' },
