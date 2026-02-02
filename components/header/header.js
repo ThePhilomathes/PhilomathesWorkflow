@@ -16,21 +16,17 @@ const HeaderComponent = defineAsyncComponent(async () => {
                 {
                     header: ' Billing', icon: 'fa-solid fa-money-bill pr-2 ', link:'/billing', sub: [
                         { header: 'Client Specifics', icon: '', link: '/billingspec' },
-                        { header: 'Department Testimonials', icon: '', link: '/billingkudos' },
-                        { header: 'Upcoming Changes', icon: '', link: '/billingupdates' }
                     ]
                 },
                 {
                     header: ' Data', icon: 'fa-solid fa-database pr-2 ', link:'/data', sub: [
                         { header: 'Client Specifics', icon: '', link: '/dataspec' },
-                        { header: 'Department Testimonials', icon: '', link: '/datakudos' }
                     ]
                 },
                 {
                     header: ' Claims', icon: 'fa-solid fa-file pr-2', link:'/claims', sub: [
                         { header: 'Client Specifics', icon: '', link: '/claimspec',},
-                        { header: 'Claim Definitions', icon: '', link: '/claimcontact' },
-                        { header: 'Department Testimonials', icon: '', link: '/claimkudos' }
+
                     ]
                 }
 
