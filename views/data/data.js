@@ -1,6 +1,3 @@
-
-
-
 const DataComponent = defineAsyncComponent(async() =>{
   return {
       data() {

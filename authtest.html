@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Workflow Portal</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { sky800: '#075985', sky100: '#E0F2FE' } } } };
+</script>
+</head>
+<body class="bg-slate-100 min-h-screen">
+
+<header class="bg-sky800 text-white flex justify-between items-center px-6 py-4">
+  <h1 class="text-xl font-semibold">Workflow Portal</h1>
+  <div class="flex items-center gap-4">
+    <span id="roleLabel" class="text-sm hidden"></span>
+    <button id="signOutBtn" onclick="signOut()" class="hidden bg-white/20 px-3 py-1 rounded text-sm">Sign Out</button>
+  </div>
+</header>
+
+<div id="landing" class="max-w-3xl mx-auto mt-20 bg-white rounded-xl shadow-lg p-10 text-center">
+  <h2 class="text-2xl font-bold text-sky800">Department Workflow Portal</h2>
+  <p class="mt-4 text-gray-600">Centralized portal for department workflows and SharePoint references.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+    <button onclick="showLogin('admin')" class="bg-sky800 text-white py-3 rounded-lg">Admin Login</button>
+    <button onclick="showLogin('employee')" class="bg-sky-600 text-white py-3 rounded-lg">Employee Login</button>
+  </div>
+  <p class="mt-6 text-xs text-gray-500">Admin: admin / admin123<br>Employee: employee / emp123</p>
+</div>
+
+<div id="loginModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center">
+  <div class="bg-white rounded-xl w-full max-w-md p-8">
+    <h3 id="loginTitle" class="text-xl font-semibold text-sky800">Login</h3>
+    <input id="username" placeholder="Username" class="w-full mt-4 p-2 border rounded" />
+    <input id="password" type="password" placeholder="Password" class="w-full mt-3 p-2 border rounded" />
+    <div class="flex gap-4 mt-6">
+      <button onclick="login()" class="flex-1 bg-sky800 text-white py-2 rounded">Login</button>
+      <button onclick="closeLogin()" class="flex-1 bg-gray-300 py-2 rounded">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<nav id="departmentNav" class="hidden bg-sky100 border-b px-6 py-3 flex flex-col items-center gap-3">
+  <input id="searchInput" oninput="render()" placeholder="Search workflows..." class="p-2 border rounded w-full md:w-1/3 text-center" />
+  <div id="deptButtons" class="flex gap-2 overflow-x-auto"></div>
+</nav>
+
+<div id="mainApp" class="hidden max-w-6xl mx-auto p-6">
+  <!-- Admin Dashboard -->
+  <div id="adminDashboard" class="hidden mb-8 grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+
+  <!-- Admin CRUD Area -->
+  <div id="adminArea" class="hidden mb-10">
+    <h2 class="text-xl font-semibold text-sky800 mb-4">Admin – Workflow Management</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <select id="department" class="p-2 border rounded">
+        <option>HR</option><option>IT</option><option>Finance</option><option>Operations</option>
+      </select>
+
+      <!-- Separate inputs for workflow steps -->
+      <input id="taskName" placeholder="Task Name" class="p-2 border rounded bg-sky100" />
+      <input id="taskIdentification" placeholder="Task Identification" class="p-2 border rounded bg-sky100" />
+      <input id="folderName" placeholder="Folder Name" class="p-2 border rounded bg-sky100" />
+
+      <textarea id="summary" placeholder="Summary Description" class="p-2 border rounded md:col-span-2 bg-sky100"></textarea>
+
+      <select id="kpi" class="p-2 border rounded md:col-span-2 bg-sky100">
+        <option>Approval Time – 30 mins</option>
+        <option>Processing Time – 45 mins</option>
+        <option>Resolution Time – 60 mins</option>
+      </select>
+
+      <input id="linkUrl" placeholder="SharePoint Sample Link" class="p-2 border rounded md:col-span-1 bg-sky100" />
+      <input id="linkName" placeholder="SharePoint Link Name" class="p-2 border rounded md:col-span-1 bg-sky100" />
+    </div>
+
+    <div class="mt-4">
+      <label class="text-sm text-gray-600">Attach Image</label>
+      <input type="file" accept="image/*" onchange="handleImageUpload(event)" />
+      <div id="imagePreview" class="mt-3"></div>
+    </div>
+
+    <button onclick="saveWorkflow()" class="mt-4 bg-sky800 text-white px-6 py-2 rounded">Save Workflow</button>
+  </div>
+
+  <!-- Employee Dashboard -->
+  <div id="employeeDashboard" class="hidden mb-8 grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+
+  <!-- Workflows List -->
+  <div id="list" class="mt-4 grid gap-6"></div>
+</div>
+
+<script>
+const credentials={admin:{username:'admin',password:'admin123'},employee:{username:'employee',password:'emp123'}};
+let role=null, selectedRole=null, currentDepartment='All', workflows=JSON.parse(localStorage.getItem('workflows'))||[], imageData=null, editingId=null;
+
+function showLogin(r){selectedRole=r; loginTitle.innerText=r==='admin'?'Admin Login':'Employee Login'; loginModal.classList.remove('hidden'); loginModal.classList.add('flex');}
+function closeLogin(){loginModal.classList.add('hidden'); loginModal.classList.remove('flex');}
+function login(){const u=username.value.trim(),p=password.value.trim(); if(credentials[selectedRole] && u===credentials[selectedRole].username && p===credentials[selectedRole].password){role=selectedRole; enterApp(); closeLogin();} else alert('Invalid credentials');}
+
+function enterApp(){landing.classList.add('hidden'); mainApp.classList.remove('hidden'); departmentNav.classList.remove('hidden'); roleLabel.innerText=role.toUpperCase(); roleLabel.classList.remove('hidden'); signOutBtn.classList.remove('hidden'); adminArea.classList.toggle('hidden', role!=='admin'); adminDashboard.classList.remove('hidden'); employeeDashboard.classList.remove('hidden'); render();}
+function signOut(){role=null; currentDepartment='All'; mainApp.classList.add('hidden'); departmentNav.classList.add('hidden'); adminArea.classList.add('hidden'); adminDashboard.classList.add('hidden'); employeeDashboard.classList.add('hidden'); roleLabel.classList.add('hidden'); signOutBtn.classList.add('hidden'); landing.classList.remove('hidden');}
+
+function handleImageUpload(e){const file=e.target.files[0]; const reader=new FileReader(); reader.onload=()=>{imageData=reader.result; imagePreview.innerHTML=`<img src="${imageData}" class="max-w-xs rounded" />`;}; if(file) reader.readAsDataURL(file);}
+
+function saveWorkflow(){if(role!=='admin')return; const steps=`Task Name: ${taskName.value}\nTask Identification: ${taskIdentification.value}\nFolder Name: ${folderName.value}`; const linkNameVal=linkName.value.trim(); if(editingId){const idx=workflows.findIndex(w=>w.id===editingId); if(idx>-1){ workflows[idx].versions.push({...workflows[idx]}); workflows[idx]={...workflows[idx], department:department.value, steps, summary:summary.value, kpi:kpi.value, image:imageData, link:linkUrl.value, linkName:linkNameVal, updated:new Date().toLocaleString()};} editingId=null;} else workflows.push({id:Date.now(), department:department.value, steps, summary:summary.value, kpi:kpi.value, image:imageData, link:linkUrl.value, linkName:linkNameVal, updated:new Date().toLocaleString(), versions:[]}); localStorage.setItem('workflows',JSON.stringify(workflows)); imagePreview.innerHTML=''; imageData=null; render();}
+
+function editWorkflow(id){const w=workflows.find(x=>x.id===id); if(!w)return; editingId=id; department.value=w.department; const taskParts=w.steps.split('\n'); taskName.value=taskParts[0].replace('Task Name: ',''); taskIdentification.value=taskParts[1].replace('Task Identification: ',''); folderName.value=taskParts[2].replace('Folder Name: ',''); summary.value=w.summary; kpi.value=w.kpi; linkUrl.value=w.link; linkName.value=w.linkName||''; imagePreview.innerHTML=w.image?`<img src="${w.image}" class="max-w-xs rounded" />`:''; imageData=w.image; window.scrollTo({top:0, behavior:'smooth'});}
+function deleteWorkflow(id){if(!confirm('Delete this workflow?'))return; workflows=workflows.filter(w=>w.id!==id); localStorage.setItem('workflows',JSON.stringify(workflows)); render();}
+
+function renderNav(){deptButtons.innerHTML=''; const depts=['All',...new Set(workflows.map(w=>w.department))]; depts.forEach(d=>{deptButtons.innerHTML+=`<button class="px-4 py-1 rounded-full ${currentDepartment===d?'bg-sky800 text-white':'bg-gray-200'}" onclick="filterDept('${d}')">${d}</button>`;});}
+function filterDept(d){currentDepartment=d; render();}
+
+function render(){
+  renderNav();
+  // Dashboard counts
+  const departments = [...new Set(workflows.map(w=>w.department))];
+  adminDashboard.innerHTML='';
+  if(currentDepartment==='All'){
+    adminDashboard.innerHTML+=`<div class="bg-white p-4 rounded shadow"><div class="text-sm text-gray-500">Total Workflows</div><div class="text-2xl font-bold text-sky800">${workflows.length}</div></div>`;
+    departments.forEach(dep=>{
+      const count=workflows.filter(w=>w.department===dep).length;
+      adminDashboard.innerHTML+=`<div class="bg-white p-4 rounded shadow"><div class="text-sm text-gray-500">${dep} Workflows</div><div class="text-2xl font-bold text-sky800">${count}</div></div>`;
+    });
+  } else {
+    const count=workflows.filter(w=>w.department===currentDepartment).length;
+    adminDashboard.innerHTML=`<div class="bg-white p-4 rounded shadow"><div class="text-sm text-gray-500">${currentDepartment} Workflows</div><div class="text-2xl font-bold text-sky800">${count}</div></div>`;
+  }
+
+  const search=searchInput.value.toLowerCase();
+  list.innerHTML='';
+  workflows.filter(w=>currentDepartment==='All'||w.department===currentDepartment).filter(w=>!search||w.steps.toLowerCase().includes(search)||w.summary.toLowerCase().includes(search)).forEach(w=>{
+    list.innerHTML+=`<div class="bg-sky100 border-l-4 border-sky800 rounded-lg shadow p-5">
+      <div class="mb-2 font-semibold text-sky800 text-lg">${w.steps.split('\n')[0]}</div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <div><strong>Department:</strong> ${w.department}</div>
+        <div><strong>Updated:</strong> ${w.updated}</div>
+        <div class="md:col-span-2"><strong>Workflow Steps:</strong><pre class="whitespace-pre-wrap">${w.steps}</pre></div>
+        <div class="md:col-span-2"><strong>Summary:</strong> ${w.summary}</div>
+        <div><strong>KPI:</strong> ${w.kpi}</div>
+        ${w.link?`<div><strong>SharePoint:</strong> <a href="${w.link}" target="_blank" class="text-sky800 underline">${w.linkName||w.link}</a></div>`:''}
+        ${w.image?`<div class="md:col-span-2 mt-2"><img src="${w.image}" class="max-w-sm rounded border" /></div>`:''}
+      </div>
+      ${role==='admin'?`<div class="flex gap-2 mt-3"><button onclick="editWorkflow(${w.id})" class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded">Edit</button><button onclick="deleteWorkflow(${w.id})" class="bg-red-100 text-red-700 px-3 py-1 rounded">Delete</button></div>`:''}
+    </div>`;
+  });
+}
+</script>
+
+</body>
+</html>

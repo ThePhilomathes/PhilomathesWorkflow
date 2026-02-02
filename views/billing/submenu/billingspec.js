@@ -119,30 +119,35 @@ const billingspecComponent = defineAsyncComponent(async () => {
             }
         },
 
-        computed: {
-            filteredWorkflows() {
-                if (!this.searchQuery) return this.workflows
-                const query = this.searchQuery.toLowerCase()
+computed: {
+  filteredWorkflows() {
+    if (!this.searchQuery) return this.workflows
+    const query = this.searchQuery.toLowerCase()
 
-                return this.workflows
-                    .map(wf => {
-                        let score = 0
+    return this.workflows
+      .map(wf => {
+        let score = 0
 
-                        // Strong match: workflow name
-                        if (wf.type.toLowerCase().includes(query)) score += 3
+        // Strong match: workflow name
+        if (wf.type && wf.type.toLowerCase().includes(query)) score += 3
 
-                        // Medium match: steps
-                        if (wf.steps.some(step => step.toLowerCase().includes(query))) score += 2
+        // Medium match: steps (description, note, sub)
+        if (Array.isArray(wf.steps) && wf.steps.some(step =>
+          (step.description && step.description.toLowerCase().includes(query)) ||
+          (step.note && step.note.toLowerCase().includes(query)) ||
+          (step.sub && step.sub.some(sub => sub.toLowerCase().includes(query)))
+        )) score += 2
 
-                        // Weak match: manager
-                        if (wf.manager && wf.manager.toLowerCase().includes(query)) score += 1
+        // Weak match: manager
+        if (wf.manager && wf.manager.toLowerCase().includes(query)) score += 1
 
-                        return { ...wf, score }
-                    })
-                    .filter(wf => wf.score > 0) // keep only matches
-                    .sort((a, b) => b.score - a.score) // sort by score descending
-            }
-        },
+        return { ...wf, score }
+      })
+      .filter(wf => wf.score > 0) // keep only matches
+      .sort((a, b) => b.score - a.score) // sort by score descending
+  }
+},
+
 
         template: await getHTML('./views/billing/submenu/billingspec.html')
     }
