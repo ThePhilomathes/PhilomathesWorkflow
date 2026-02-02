@@ -29,8 +29,6 @@ const HeaderComponent = defineAsyncComponent(async () => {
 
                     ]
                 }
-
-
             ])
 
             const toggleSideBar = () => {
