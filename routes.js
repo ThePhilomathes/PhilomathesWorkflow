@@ -36,14 +36,6 @@ const routes = [
     // { path: '/qa', component: QA },
     // { path: '/workflow', component: Workflow }
 
-
-
-
-//     // Data Sub-Headers//
-
-//     { path: '/datacontact', component: datacontactComponent, name: 'Data Client Contacts' },
-//     { path: '/datakudos', component: datakudosComponent, name: 'Data Testimonials' },
-// 
 ]
 
 const router = createRouter({
